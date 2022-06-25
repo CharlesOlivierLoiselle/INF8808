@@ -1897,7 +1897,7 @@ function drawYAxis(yScale) {
 
 
 function updateGroupXScale(scale, data, width) {
-  scale.domain(data['Average']['year']).range([0, width]);
+  scale.domain(data.Average.year).range([0, width]);
 }
 /**
  * Sets the domain and range of the Y scale.
@@ -1984,8 +1984,8 @@ function setSizing() {
 
 
 function buildBarChart(data, g) {
-  // appendAxes(g)
-  // appendGraphLabels(g)
+  appendAxes(g);
+  appendGraphLabels(g);
   setSizing();
   var subGroupBars = ['Average', 'X']; // Update according to data input
 
@@ -2033,8 +2033,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             redrawVizForYear = function _redrawVizForYear(year) {
               (0, _mapViz.drawCircles)(mapData[year], (0, _clickHandlers.circleClickHandler)(redrawVizForCounter));
               (0, _areaChart.drawAreaChart)(areaSize.width, areaSize.height, areaChartData[year]['Average']);
-              (0, _lineChart.drawLineChart)(lineSize.width, lineSize.height, lineChartData[year]['Average']);
-              (0, _barChartViz.buildBarChart)(barChartData, '#bar-svg'); // WITH NO COUNTER
+              (0, _lineChart.drawLineChart)(lineSize.width, lineSize.height, lineChartData[year]['Average']); // buildBarChart(barChartData, '#bar-svg'); WITH NO COUNTER
             };
 
             redrawVizForCounter = function _redrawVizForCounter(year, counter) {
@@ -2139,7 +2138,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60014" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61278" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
